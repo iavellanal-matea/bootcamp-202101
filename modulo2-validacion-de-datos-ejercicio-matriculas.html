@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <script>
+            /* Detallo la validacion de matricula de acuerdo a lo especificado */
+      
+            var ermatricula = /(?!.*(Ñ))([A-S]{1})([A-Z]{2})[ ]\d{4}$/;
+
+
+            /* Declaro la función que me ayudará a validar los datos */
+            
+            function Valida(formulario) {
+            alert("Al hacer click sobre el botón, inicialicé  la función para validar datos");
+
+                /* Validación de campos no vacios */
+
+                if ((formulario.matricula.value.length == 0)) {    
+                   /* Si el campo esta vacio, muestro una alerta al usuario */
+                    alert('Mensaje para usuario: No ha ingresado una matrícula');
+                   /* Y detengo el avance de la funcion con la siguiente sentencia */                    
+                    return false;
+                }  
+                    /* En caso el usuario haya ingresado una matrícula, continúo adelante con la función */ 
+
+                /* Validación */      
+                if (!(ermatricula.test(formulario.matricula.value))) { 
+                    alert('Mensaje para usuario: La matrícula ingresada no es válida');
+                    return false; 
+                }
+
+                alert('Mensaje para usuario: La matrícula ingresada es válida.');
+
+                /* Si no hemos detectado ningun error, devolvemos true */
+                return true;
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <h2 id="titulo">Validación de matrículas</h2>
+        
+        <p> Recuerda ingresar las tres iniciales de la matrícula, seguida de un espacio y los cuatro números restantes.
+        </p>
+
+        <form name="Formulario" onsubmit="return Valida(this);" action="" >
+            Matrícula: <input type="text" name="matricula"><br>
+            <br>
+            <input type="submit" value="Chequear" name="chequear">
+        </form>
+
+    </body>
+</html>

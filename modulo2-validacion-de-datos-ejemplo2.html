@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <script>
+            /* Detallo validaciones */
+      
+            var ercampo1 = /^[a-zA-Z]+$/;                           /* Sea solo texto */
+            var ercampo2 = /^[0-9]+$/;                              /* Solo números   */
+            var ercorreo= /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;      /* Sea un correo electronico valido */
+            
+
+            /* Declaro la función que me ayudará a validar los datos */
+            
+            function Valida(formulario) {
+            alert("Comienza la validación de datos");
+
+                /* Validación de campos no vacios */
+
+                if ((formulario.campo1.value.length == 0) || (formulario.campo2.value.length == 0) || (formulario.mail.value.length == 0)) {    
+                   /* Si estan vacios, muestro una alerta al usuario con la siguiente sentencia*/
+                    alert('Falta informacion en algunos campos');
+                   /* Y detengo el avance de la funcion con la siguiente sentencia hasta que el usuario regularice este campo*/                    
+                    return false;
+                }  
+                    /* En caso el usuario haya ingresado sus datos de forma válida, continúo adelante con la función */ 
+                                
+                /* Validación de campo 1 */
+                if (isNaN(parseInt(formulario.campo1.value))) {
+                    alert('El campo 1 debe ser un numero');
+                    return false;
+                } 
+                
+                /* Validación de campo 2 */
+                if (isNaN(parseInt(formulario.campo2.value))) {
+                    alert('El campo 2 debe contener solamente numeros');
+                    return false;
+                } 
+
+                /* Validación del mail */      
+                if (!(ercorreo.test(formulario.mail.value))) { 
+                    alert('Correo electronico no valido');
+                    return false; 
+                }
+
+                alert('Validación finalizada. Datos ingresados son correctos');
+
+                /* Si no hemos detectado ningun error, devolvemos true */
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <form name="Formulario" onsubmit="return Valida(this);" action="" >
+            
+            Campo1 <input type="text" name="campo1"><br>
+            Campo2 <input type="text" name="campo2"><br>
+            Mail <input type="text" name="mail"><br>
+
+            <input type="submit" value="Chequear" name="chequear">
+        </form>
+    </body>
+</html>
