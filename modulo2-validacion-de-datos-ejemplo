@@ -1,13 +1,13 @@
 <!DOCTYPE html>
+
 <!--
-↓ INSTRUCCIONES DEL EJERCICIO ↓
 Validación de informacion
 -->
+
 <html lang="es">
     <head>
-        <title>Validar Informacion</title>
+        <title>Validar informacion</title>
         <meta charset="utf-8" />
-        <meta name="author" content="Ignacio Avellanal" />
     </head>
 
     <body>
@@ -47,6 +47,7 @@ Validación de informacion
              * @param  {RegExp} expr   Expresión regular que debe cumplirse.
              */
              
+             
             function comprobar(titulo, dato, expr) {
                 document.write(titulo + ' → ' + expr.test(dato) + '<br />');
             }
@@ -60,6 +61,7 @@ Validación de informacion
             comprobar("Curso", curso, v_curso);
             comprobar("Anio", anio, v_anio);
             comprobar("Observaciones", observaciones, v_observaciones);
+            
         </script>
     </body>
 </html>
